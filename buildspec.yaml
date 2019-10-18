@@ -19,7 +19,7 @@ phases:
   build:
     commands:
       - echo build started at `date` for environment $ENV_NAME
-      - sam package --s3-bucket chat-gateway-bucks-$ENV_NAME --template-file template.yaml --output-template-file payment-gateway-package.yaml
+      - sam package --s3-bucket chat-gateway-bucks-$ENV_NAME --template-file template.yaml --output-template-file payment-gateway-package.yaml SAM_CLI_TELEMETRY=0 
       - echo "deploying"
       - sam deploy --template-file payment-gateway-package.yaml --stack-name payment-gateway-$ENV_NAME --capabilities CAPABILITY_IAM
   post_build:
