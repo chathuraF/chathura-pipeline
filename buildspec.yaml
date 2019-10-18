@@ -12,11 +12,9 @@ phases:
   pre_build:
     commands:
       - echo "installing npm packages "
-      - npm install
-      - echo "running eslint "
-      - npm run lint
+      - cd hello-world && npm install
       - echo "running unit test "
-      - npm run test
+      - npm run test && cd ..
 
   build:
     commands:
